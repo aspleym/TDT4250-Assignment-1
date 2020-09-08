@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sp">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="sp" nsURI="sp" nsPrefix="sp">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="validationDelegates" value="http://www.eclipse.org/acceleo/query/1.0"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Course">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="#//CourseCode"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="credit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
@@ -18,11 +21,11 @@
         eType="#//Specialisation" containment="true" eOpposite="#//Specialisation/specialisationIn"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="numberOfYears" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="years" lowerBound="1" upperBound="-1"
-        eType="#//Year"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="yearInProgram" lowerBound="1"
+        upperBound="-1" eType="#//Year"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Year">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yearNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" lowerBound="1"
         upperBound="-1" eType="#//Semester"/>
   </eClassifiers>
@@ -41,5 +44,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="semesters" lowerBound="1"
         upperBound="-1" eType="#//Semester"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="CourseCode" instanceClassName="java.lang.String">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData">
+      <details key="pattern" value="\p{L}+\d+"/>
+    </eAnnotations>
   </eClassifiers>
 </ecore:EPackage>
