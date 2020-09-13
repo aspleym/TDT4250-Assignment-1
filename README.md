@@ -1,5 +1,4 @@
 # TDT4250-Assignment-1
----
 
 This repository is for assignment 1 in course TDT4250 for autumn 2020. It consists of the following subjects:
 
@@ -7,14 +6,13 @@ This repository is for assignment 1 in course TDT4250 for autumn 2020. It consis
   - Content
 
 ## Repo structure:
----
 
 The model folder contains the ecore-file (.ecore) for modeling the project, and a generator-file (.genmodel) for generating the model file.
 
-The generator created the src folder with the interface, implementation and utility packages. Inside the utility package there are a validator for checking constraints. .
+The generator created the src folder with the interface, implementation and utility packages. Inside the utility package there are a validator for checking constraints.
 
 ## Content:
----
+
 ### Model:
 Assignment 1 is the first version of the study plan model and may be changed later during this course.
 
