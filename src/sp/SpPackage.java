@@ -197,13 +197,13 @@ public interface SpPackage extends EPackage {
 	int PROGRAMME__NUMBER_OF_YEARS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Year In Program</b></em>' reference list.
+	 * The feature id for the '<em><b>Years</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROGRAMME__YEAR_IN_PROGRAM = 3;
+	int PROGRAMME__YEARS = 3;
 
 	/**
 	 * The number of structural features of the '<em>Programme</em>' class.
@@ -252,13 +252,22 @@ public interface SpPackage extends EPackage {
 	int YEAR__SEMESTERS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Year In Programme</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int YEAR__YEAR_IN_PROGRAMME = 2;
+
+	/**
 	 * The number of structural features of the '<em>Year</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int YEAR_FEATURE_COUNT = 2;
+	int YEAR_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Year</em>' class.
@@ -409,13 +418,13 @@ public interface SpPackage extends EPackage {
 	int STUDY_PLAN = 6;
 
 	/**
-	 * The feature id for the '<em><b>Programmes In Study Plan</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Programmes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN = 0;
+	int STUDY_PLAN__PROGRAMMES = 0;
 
 	/**
 	 * The feature id for the '<em><b>Student Nr</b></em>' attribute.
@@ -574,15 +583,15 @@ public interface SpPackage extends EPackage {
 	EAttribute getProgramme_NumberOfYears();
 
 	/**
-	 * Returns the meta object for the reference list '{@link sp.Programme#getYearInProgram <em>Year In Program</em>}'.
+	 * Returns the meta object for the containment reference list '{@link sp.Programme#getYears <em>Years</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Year In Program</em>'.
-	 * @see sp.Programme#getYearInProgram()
+	 * @return the meta object for the containment reference list '<em>Years</em>'.
+	 * @see sp.Programme#getYears()
 	 * @see #getProgramme()
 	 * @generated
 	 */
-	EReference getProgramme_YearInProgram();
+	EReference getProgramme_Years();
 
 	/**
 	 * Returns the meta object for class '{@link sp.Year <em>Year</em>}'.
@@ -615,6 +624,17 @@ public interface SpPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getYear_Semesters();
+
+	/**
+	 * Returns the meta object for the container reference '{@link sp.Year#getYearInProgramme <em>Year In Programme</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Year In Programme</em>'.
+	 * @see sp.Year#getYearInProgramme()
+	 * @see #getYear()
+	 * @generated
+	 */
+	EReference getYear_YearInProgramme();
 
 	/**
 	 * Returns the meta object for class '{@link sp.Specialisation <em>Specialisation</em>}'.
@@ -735,15 +755,15 @@ public interface SpPackage extends EPackage {
 	EClass getStudyPlan();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link sp.StudyPlan#getProgrammesInStudyPlan <em>Programmes In Study Plan</em>}'.
+	 * Returns the meta object for the containment reference list '{@link sp.StudyPlan#getProgrammes <em>Programmes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Programmes In Study Plan</em>'.
-	 * @see sp.StudyPlan#getProgrammesInStudyPlan()
+	 * @return the meta object for the containment reference list '<em>Programmes</em>'.
+	 * @see sp.StudyPlan#getProgrammes()
 	 * @see #getStudyPlan()
 	 * @generated
 	 */
-	EReference getStudyPlan_ProgrammesInStudyPlan();
+	EReference getStudyPlan_Programmes();
 
 	/**
 	 * Returns the meta object for the attribute '{@link sp.StudyPlan#getStudentNr <em>Student Nr</em>}'.
@@ -886,12 +906,12 @@ public interface SpPackage extends EPackage {
 		EAttribute PROGRAMME__NUMBER_OF_YEARS = eINSTANCE.getProgramme_NumberOfYears();
 
 		/**
-		 * The meta object literal for the '<em><b>Year In Program</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Years</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PROGRAMME__YEAR_IN_PROGRAM = eINSTANCE.getProgramme_YearInProgram();
+		EReference PROGRAMME__YEARS = eINSTANCE.getProgramme_Years();
 
 		/**
 		 * The meta object literal for the '{@link sp.impl.YearImpl <em>Year</em>}' class.
@@ -918,6 +938,14 @@ public interface SpPackage extends EPackage {
 		 * @generated
 		 */
 		EReference YEAR__SEMESTERS = eINSTANCE.getYear_Semesters();
+
+		/**
+		 * The meta object literal for the '<em><b>Year In Programme</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference YEAR__YEAR_IN_PROGRAMME = eINSTANCE.getYear_YearInProgramme();
 
 		/**
 		 * The meta object literal for the '{@link sp.impl.SpecialisationImpl <em>Specialisation</em>}' class.
@@ -1014,12 +1042,12 @@ public interface SpPackage extends EPackage {
 		EClass STUDY_PLAN = eINSTANCE.getStudyPlan();
 
 		/**
-		 * The meta object literal for the '<em><b>Programmes In Study Plan</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Programmes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN = eINSTANCE.getStudyPlan_ProgrammesInStudyPlan();
+		EReference STUDY_PLAN__PROGRAMMES = eINSTANCE.getStudyPlan_Programmes();
 
 		/**
 		 * The meta object literal for the '<em><b>Student Nr</b></em>' attribute feature.

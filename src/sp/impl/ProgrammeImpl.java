@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import sp.Programme;
@@ -35,7 +34,7 @@ import sp.Year;
  *   <li>{@link sp.impl.ProgrammeImpl#getName <em>Name</em>}</li>
  *   <li>{@link sp.impl.ProgrammeImpl#getSpecialisations <em>Specialisations</em>}</li>
  *   <li>{@link sp.impl.ProgrammeImpl#getNumberOfYears <em>Number Of Years</em>}</li>
- *   <li>{@link sp.impl.ProgrammeImpl#getYearInProgram <em>Year In Program</em>}</li>
+ *   <li>{@link sp.impl.ProgrammeImpl#getYears <em>Years</em>}</li>
  * </ul>
  *
  * @generated
@@ -92,14 +91,14 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	protected int numberOfYears = NUMBER_OF_YEARS_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getYearInProgram() <em>Year In Program</em>}' reference list.
+	 * The cached value of the '{@link #getYears() <em>Years</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getYearInProgram()
+	 * @see #getYears()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Year> yearInProgram;
+	protected EList<Year> years;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -179,11 +178,11 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Year> getYearInProgram() {
-		if (yearInProgram == null) {
-			yearInProgram = new EObjectResolvingEList<Year>(Year.class, this, SpPackage.PROGRAMME__YEAR_IN_PROGRAM);
+	public EList<Year> getYears() {
+		if (years == null) {
+			years = new EObjectContainmentWithInverseEList<Year>(Year.class, this, SpPackage.PROGRAMME__YEARS, SpPackage.YEAR__YEAR_IN_PROGRAMME);
 		}
-		return yearInProgram;
+		return years;
 	}
 
 	/**
@@ -197,6 +196,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		switch (featureID) {
 			case SpPackage.PROGRAMME__SPECIALISATIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecialisations()).basicAdd(otherEnd, msgs);
+			case SpPackage.PROGRAMME__YEARS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getYears()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -211,6 +212,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 		switch (featureID) {
 			case SpPackage.PROGRAMME__SPECIALISATIONS:
 				return ((InternalEList<?>)getSpecialisations()).basicRemove(otherEnd, msgs);
+			case SpPackage.PROGRAMME__YEARS:
+				return ((InternalEList<?>)getYears()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -229,8 +232,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return getSpecialisations();
 			case SpPackage.PROGRAMME__NUMBER_OF_YEARS:
 				return getNumberOfYears();
-			case SpPackage.PROGRAMME__YEAR_IN_PROGRAM:
-				return getYearInProgram();
+			case SpPackage.PROGRAMME__YEARS:
+				return getYears();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -254,9 +257,9 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case SpPackage.PROGRAMME__NUMBER_OF_YEARS:
 				setNumberOfYears((Integer)newValue);
 				return;
-			case SpPackage.PROGRAMME__YEAR_IN_PROGRAM:
-				getYearInProgram().clear();
-				getYearInProgram().addAll((Collection<? extends Year>)newValue);
+			case SpPackage.PROGRAMME__YEARS:
+				getYears().clear();
+				getYears().addAll((Collection<? extends Year>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -279,8 +282,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 			case SpPackage.PROGRAMME__NUMBER_OF_YEARS:
 				setNumberOfYears(NUMBER_OF_YEARS_EDEFAULT);
 				return;
-			case SpPackage.PROGRAMME__YEAR_IN_PROGRAM:
-				getYearInProgram().clear();
+			case SpPackage.PROGRAMME__YEARS:
+				getYears().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -300,8 +303,8 @@ public class ProgrammeImpl extends MinimalEObjectImpl.Container implements Progr
 				return specialisations != null && !specialisations.isEmpty();
 			case SpPackage.PROGRAMME__NUMBER_OF_YEARS:
 				return numberOfYears != NUMBER_OF_YEARS_EDEFAULT;
-			case SpPackage.PROGRAMME__YEAR_IN_PROGRAM:
-				return yearInProgram != null && !yearInProgram.isEmpty();
+			case SpPackage.PROGRAMME__YEARS:
+				return years != null && !years.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

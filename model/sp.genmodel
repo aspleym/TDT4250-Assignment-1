@@ -20,11 +20,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//Programme/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sp.ecore#//Programme/specialisations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//Programme/numberOfYears"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sp.ecore#//Programme/yearInProgram"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sp.ecore#//Programme/years"/>
     </genClasses>
     <genClasses ecoreClass="sp.ecore#//Year">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//Year/number"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sp.ecore#//Year/semesters"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sp.ecore#//Year/yearInProgramme"/>
     </genClasses>
     <genClasses ecoreClass="sp.ecore#//Specialisation">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference sp.ecore#//Specialisation/specialisationIn"/>
@@ -39,7 +40,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//CourseInSemester/picked"/>
     </genClasses>
     <genClasses ecoreClass="sp.ecore#//StudyPlan">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sp.ecore#//StudyPlan/ProgrammesInStudyPlan"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sp.ecore#//StudyPlan/programmes"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//StudyPlan/studentNr"/>
     </genClasses>
   </genPackages>

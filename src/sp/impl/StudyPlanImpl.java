@@ -30,7 +30,7 @@ import sp.StudyPlan;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sp.impl.StudyPlanImpl#getProgrammesInStudyPlan <em>Programmes In Study Plan</em>}</li>
+ *   <li>{@link sp.impl.StudyPlanImpl#getProgrammes <em>Programmes</em>}</li>
  *   <li>{@link sp.impl.StudyPlanImpl#getStudentNr <em>Student Nr</em>}</li>
  * </ul>
  *
@@ -38,14 +38,14 @@ import sp.StudyPlan;
  */
 public class StudyPlanImpl extends MinimalEObjectImpl.Container implements StudyPlan {
 	/**
-	 * The cached value of the '{@link #getProgrammesInStudyPlan() <em>Programmes In Study Plan</em>}' containment reference list.
+	 * The cached value of the '{@link #getProgrammes() <em>Programmes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getProgrammesInStudyPlan()
+	 * @see #getProgrammes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Programme> programmesInStudyPlan;
+	protected EList<Programme> programmes;
 
 	/**
 	 * The default value of the '{@link #getStudentNr() <em>Student Nr</em>}' attribute.
@@ -91,11 +91,11 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Programme> getProgrammesInStudyPlan() {
-		if (programmesInStudyPlan == null) {
-			programmesInStudyPlan = new EObjectContainmentEList<Programme>(Programme.class, this, SpPackage.STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN);
+	public EList<Programme> getProgrammes() {
+		if (programmes == null) {
+			programmes = new EObjectContainmentEList<Programme>(Programme.class, this, SpPackage.STUDY_PLAN__PROGRAMMES);
 		}
-		return programmesInStudyPlan;
+		return programmes;
 	}
 
 	/**
@@ -127,8 +127,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case SpPackage.STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN:
-				return ((InternalEList<?>)getProgrammesInStudyPlan()).basicRemove(otherEnd, msgs);
+			case SpPackage.STUDY_PLAN__PROGRAMMES:
+				return ((InternalEList<?>)getProgrammes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -141,8 +141,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case SpPackage.STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN:
-				return getProgrammesInStudyPlan();
+			case SpPackage.STUDY_PLAN__PROGRAMMES:
+				return getProgrammes();
 			case SpPackage.STUDY_PLAN__STUDENT_NR:
 				return getStudentNr();
 		}
@@ -158,9 +158,9 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case SpPackage.STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN:
-				getProgrammesInStudyPlan().clear();
-				getProgrammesInStudyPlan().addAll((Collection<? extends Programme>)newValue);
+			case SpPackage.STUDY_PLAN__PROGRAMMES:
+				getProgrammes().clear();
+				getProgrammes().addAll((Collection<? extends Programme>)newValue);
 				return;
 			case SpPackage.STUDY_PLAN__STUDENT_NR:
 				setStudentNr((Integer)newValue);
@@ -177,8 +177,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case SpPackage.STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN:
-				getProgrammesInStudyPlan().clear();
+			case SpPackage.STUDY_PLAN__PROGRAMMES:
+				getProgrammes().clear();
 				return;
 			case SpPackage.STUDY_PLAN__STUDENT_NR:
 				setStudentNr(STUDENT_NR_EDEFAULT);
@@ -195,8 +195,8 @@ public class StudyPlanImpl extends MinimalEObjectImpl.Container implements Study
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case SpPackage.STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN:
-				return programmesInStudyPlan != null && !programmesInStudyPlan.isEmpty();
+			case SpPackage.STUDY_PLAN__PROGRAMMES:
+				return programmes != null && !programmes.isEmpty();
 			case SpPackage.STUDY_PLAN__STUDENT_NR:
 				return studentNr != STUDENT_NR_EDEFAULT;
 		}

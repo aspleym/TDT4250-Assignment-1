@@ -259,7 +259,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProgramme_YearInProgram() {
+	public EReference getProgramme_Years() {
 		return (EReference)programmeEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -288,6 +288,15 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 */
 	public EReference getYear_Semesters() {
 		return (EReference)yearEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getYear_YearInProgramme() {
+		return (EReference)yearEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -394,7 +403,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getStudyPlan_ProgrammesInStudyPlan() {
+	public EReference getStudyPlan_Programmes() {
 		return (EReference)studyPlanEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -457,11 +466,12 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 		createEAttribute(programmeEClass, PROGRAMME__NAME);
 		createEReference(programmeEClass, PROGRAMME__SPECIALISATIONS);
 		createEAttribute(programmeEClass, PROGRAMME__NUMBER_OF_YEARS);
-		createEReference(programmeEClass, PROGRAMME__YEAR_IN_PROGRAM);
+		createEReference(programmeEClass, PROGRAMME__YEARS);
 
 		yearEClass = createEClass(YEAR);
 		createEAttribute(yearEClass, YEAR__NUMBER);
 		createEReference(yearEClass, YEAR__SEMESTERS);
+		createEReference(yearEClass, YEAR__YEAR_IN_PROGRAMME);
 
 		specialisationEClass = createEClass(SPECIALISATION);
 		createEReference(specialisationEClass, SPECIALISATION__SPECIALISATION_IN);
@@ -476,7 +486,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 		createEAttribute(courseInSemesterEClass, COURSE_IN_SEMESTER__PICKED);
 
 		studyPlanEClass = createEClass(STUDY_PLAN);
-		createEReference(studyPlanEClass, STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN);
+		createEReference(studyPlanEClass, STUDY_PLAN__PROGRAMMES);
 		createEAttribute(studyPlanEClass, STUDY_PLAN__STUDENT_NR);
 
 		// Create data types
@@ -526,11 +536,12 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 		initEAttribute(getProgramme_Name(), ecorePackage.getEString(), "name", null, 1, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgramme_Specialisations(), this.getSpecialisation(), this.getSpecialisation_SpecialisationIn(), "specialisations", null, 0, -1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProgramme_NumberOfYears(), ecorePackage.getEInt(), "numberOfYears", null, 1, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgramme_YearInProgram(), this.getYear(), null, "yearInProgram", null, 1, -1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgramme_Years(), this.getYear(), this.getYear_YearInProgramme(), "years", null, 1, -1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(yearEClass, Year.class, "Year", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getYear_Number(), ecorePackage.getEInt(), "number", null, 0, 1, Year.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getYear_Semesters(), this.getSemester(), null, "semesters", null, 1, -1, Year.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getYear_YearInProgramme(), this.getProgramme(), this.getProgramme_Years(), "yearInProgramme", null, 0, 1, Year.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(specialisationEClass, Specialisation.class, "Specialisation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSpecialisation_SpecialisationIn(), this.getProgramme(), this.getProgramme_Specialisations(), "specialisationIn", null, 0, 1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -545,7 +556,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 		initEAttribute(getCourseInSemester_Picked(), ecorePackage.getEBoolean(), "picked", null, 0, 1, CourseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		initEClass(studyPlanEClass, StudyPlan.class, "StudyPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getStudyPlan_ProgrammesInStudyPlan(), this.getProgramme(), null, "ProgrammesInStudyPlan", null, 1, -1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getStudyPlan_Programmes(), this.getProgramme(), null, "programmes", null, 1, -1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getStudyPlan_StudentNr(), ecorePackage.getEInt(), "studentNr", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types

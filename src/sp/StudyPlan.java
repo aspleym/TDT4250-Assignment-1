@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sp.StudyPlan#getProgrammesInStudyPlan <em>Programmes In Study Plan</em>}</li>
+ *   <li>{@link sp.StudyPlan#getProgrammes <em>Programmes</em>}</li>
  *   <li>{@link sp.StudyPlan#getStudentNr <em>Student Nr</em>}</li>
  * </ul>
  *
@@ -25,16 +25,16 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface StudyPlan extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Programmes In Study Plan</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Programmes</b></em>' containment reference list.
 	 * The list contents are of type {@link sp.Programme}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Programmes In Study Plan</em>' containment reference list.
-	 * @see sp.SpPackage#getStudyPlan_ProgrammesInStudyPlan()
+	 * @return the value of the '<em>Programmes</em>' containment reference list.
+	 * @see sp.SpPackage#getStudyPlan_Programmes()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Programme> getProgrammesInStudyPlan();
+	EList<Programme> getProgrammes();
 
 	/**
 	 * Returns the value of the '<em><b>Student Nr</b></em>' attribute.

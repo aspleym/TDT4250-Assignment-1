@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link sp.Programme#getName <em>Name</em>}</li>
  *   <li>{@link sp.Programme#getSpecialisations <em>Specialisations</em>}</li>
  *   <li>{@link sp.Programme#getNumberOfYears <em>Number Of Years</em>}</li>
- *   <li>{@link sp.Programme#getYearInProgram <em>Year In Program</em>}</li>
+ *   <li>{@link sp.Programme#getYears <em>Years</em>}</li>
  * </ul>
  *
  * @see sp.SpPackage#getProgramme()
@@ -85,15 +85,17 @@ public interface Programme extends EObject {
 	void setNumberOfYears(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Year In Program</b></em>' reference list.
+	 * Returns the value of the '<em><b>Years</b></em>' containment reference list.
 	 * The list contents are of type {@link sp.Year}.
+	 * It is bidirectional and its opposite is '{@link sp.Year#getYearInProgramme <em>Year In Programme</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Year In Program</em>' reference list.
-	 * @see sp.SpPackage#getProgramme_YearInProgram()
-	 * @model required="true"
+	 * @return the value of the '<em>Years</em>' containment reference list.
+	 * @see sp.SpPackage#getProgramme_Years()
+	 * @see sp.Year#getYearInProgramme
+	 * @model opposite="yearInProgramme" containment="true" required="true"
 	 * @generated
 	 */
-	EList<Year> getYearInProgram();
+	EList<Year> getYears();
 
 } // Programme

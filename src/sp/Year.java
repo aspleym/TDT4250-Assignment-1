@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link sp.Year#getNumber <em>Number</em>}</li>
  *   <li>{@link sp.Year#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link sp.Year#getYearInProgramme <em>Year In Programme</em>}</li>
  * </ul>
  *
  * @see sp.SpPackage#getYear()
@@ -57,5 +58,29 @@ public interface Year extends EObject {
 	 * @generated
 	 */
 	EList<Semester> getSemesters();
+
+	/**
+	 * Returns the value of the '<em><b>Year In Programme</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link sp.Programme#getYears <em>Years</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Year In Programme</em>' container reference.
+	 * @see #setYearInProgramme(Programme)
+	 * @see sp.SpPackage#getYear_YearInProgramme()
+	 * @see sp.Programme#getYears
+	 * @model opposite="years" transient="false"
+	 * @generated
+	 */
+	Programme getYearInProgramme();
+
+	/**
+	 * Sets the value of the '{@link sp.Year#getYearInProgramme <em>Year In Programme</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Year In Programme</em>' container reference.
+	 * @see #getYearInProgramme()
+	 * @generated
+	 */
+	void setYearInProgramme(Programme value);
 
 } // Year
