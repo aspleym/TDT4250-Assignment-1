@@ -4,6 +4,7 @@ package sp.util;
 
 import java.util.Map;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -98,7 +99,9 @@ public class SpValidator extends EObjectValidator {
 			case SpPackage.SPECIALISATION:
 				return validateSpecialisation((Specialisation)value, diagnostics, context);
 			case SpPackage.COURSE_IN_SEMESTER:
-				return validatecourseInSemester((courseInSemester)value, diagnostics, context);
+				return validateCourseInSemester((CourseInSemester)value, diagnostics, context);
+			case SpPackage.STUDY_PLAN:
+				return validateStudyPlan((StudyPlan)value, diagnostics, context);
 			case SpPackage.COURSE_CODE:
 				return validateCourseCode((String)value, diagnostics, context);
 			default:
@@ -139,7 +142,46 @@ public class SpValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateYear(Year year, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(year, diagnostics, context);
+		if (!validate_NoCircularContainment(year, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(year, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(year, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(year, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(year, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(year, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(year, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(year, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(year, diagnostics, context);
+		if (result || diagnostics != null) result &= validateYear_needsEnoughCredits(year, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the needsEnoughCredits constraint of '<em>Year</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateYear_needsEnoughCredits(Year year, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		
+		float creditSum = 0.0f;
+		
+		for (Semester semester : year.getSemesters()) {
+			for (CourseInSemester cis : semester.getCourses()) {
+				if (cis.isPicked()) {
+					creditSum += cis.getCourse().getCredit();
+				}
+			}
+		}
+		
+		// Year consists of less than 60 student points.
+		if (creditSum < 60.0f) {
+			return false;
+		}
+		return true;
 	}
 
 	/**
@@ -156,8 +198,44 @@ public class SpValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatecourseInSemester(courseInSemester courseInSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(courseInSemester, diagnostics, context);
+	public boolean validateCourseInSemester(CourseInSemester courseInSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (!validate_NoCircularContainment(courseInSemester, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(courseInSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(courseInSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(courseInSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(courseInSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(courseInSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(courseInSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(courseInSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(courseInSemester, diagnostics, context);
+		if (result || diagnostics != null) result &= validateCourseInSemester_courseIsPickedIfMandatory(courseInSemester, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the courseIsPickedIfMandatory constraint of '<em>Course In Semester</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated NOT
+	 */
+	public boolean validateCourseInSemester_courseIsPickedIfMandatory(CourseInSemester courseInSemester, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO implement the constraint
+		// -> specify the condition that violates the constraint
+		// -> verify the diagnostic details, including severity, code, and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (courseInSemester.isMandatory()) {
+			courseInSemester.setPicked(true);
+		}
+		return true;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateStudyPlan(StudyPlan studyPlan, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(studyPlan, diagnostics, context);
 	}
 
 	/**

@@ -17,27 +17,28 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 import sp.Course;
+import sp.CourseInSemester;
 import sp.Semester;
 import sp.SpPackage;
-import sp.courseInSemester;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>course In Semester</b></em>'.
+ * An implementation of the model object '<em><b>Course In Semester</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link sp.impl.courseInSemesterImpl#getCourse <em>Course</em>}</li>
- *   <li>{@link sp.impl.courseInSemesterImpl#isIsMandatory <em>Is Mandatory</em>}</li>
- *   <li>{@link sp.impl.courseInSemesterImpl#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link sp.impl.courseInSemesterImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link sp.impl.CourseInSemesterImpl#getCourse <em>Course</em>}</li>
+ *   <li>{@link sp.impl.CourseInSemesterImpl#isMandatory <em>Mandatory</em>}</li>
+ *   <li>{@link sp.impl.CourseInSemesterImpl#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link sp.impl.CourseInSemesterImpl#getLevel <em>Level</em>}</li>
+ *   <li>{@link sp.impl.CourseInSemesterImpl#isPicked <em>Picked</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class courseInSemesterImpl extends MinimalEObjectImpl.Container implements courseInSemester {
+public class CourseInSemesterImpl extends MinimalEObjectImpl.Container implements CourseInSemester {
 	/**
 	 * The cached value of the '{@link #getCourse() <em>Course</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -49,24 +50,24 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	protected Course course;
 
 	/**
-	 * The default value of the '{@link #isIsMandatory() <em>Is Mandatory</em>}' attribute.
+	 * The default value of the '{@link #isMandatory() <em>Mandatory</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsMandatory()
+	 * @see #isMandatory()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_MANDATORY_EDEFAULT = false;
+	protected static final boolean MANDATORY_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isIsMandatory() <em>Is Mandatory</em>}' attribute.
+	 * The cached value of the '{@link #isMandatory() <em>Mandatory</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsMandatory()
+	 * @see #isMandatory()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isMandatory = IS_MANDATORY_EDEFAULT;
+	protected boolean mandatory = MANDATORY_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getSemesters() <em>Semesters</em>}' reference list.
@@ -99,11 +100,31 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	protected int level = LEVEL_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isPicked() <em>Picked</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPicked()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean PICKED_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isPicked() <em>Picked</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isPicked()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean picked = PICKED_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected courseInSemesterImpl() {
+	protected CourseInSemesterImpl() {
 		super();
 	}
 
@@ -160,8 +181,8 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isIsMandatory() {
-		return isMandatory;
+	public boolean isMandatory() {
+		return mandatory;
 	}
 
 	/**
@@ -169,11 +190,11 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIsMandatory(boolean newIsMandatory) {
-		boolean oldIsMandatory = isMandatory;
-		isMandatory = newIsMandatory;
+	public void setMandatory(boolean newMandatory) {
+		boolean oldMandatory = mandatory;
+		mandatory = newMandatory;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SpPackage.COURSE_IN_SEMESTER__IS_MANDATORY, oldIsMandatory, isMandatory));
+			eNotify(new ENotificationImpl(this, Notification.SET, SpPackage.COURSE_IN_SEMESTER__MANDATORY, oldMandatory, mandatory));
 	}
 
 	/**
@@ -214,18 +235,41 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public boolean isPicked() {
+		return picked;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPicked(boolean newPicked) {
+		boolean oldPicked = picked;
+		picked = newPicked;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SpPackage.COURSE_IN_SEMESTER__PICKED, oldPicked, picked));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case SpPackage.COURSE_IN_SEMESTER__COURSE:
 				if (resolve) return getCourse();
 				return basicGetCourse();
-			case SpPackage.COURSE_IN_SEMESTER__IS_MANDATORY:
-				return isIsMandatory();
+			case SpPackage.COURSE_IN_SEMESTER__MANDATORY:
+				return isMandatory();
 			case SpPackage.COURSE_IN_SEMESTER__SEMESTERS:
 				return getSemesters();
 			case SpPackage.COURSE_IN_SEMESTER__LEVEL:
 				return getLevel();
+			case SpPackage.COURSE_IN_SEMESTER__PICKED:
+				return isPicked();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -242,8 +286,8 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 			case SpPackage.COURSE_IN_SEMESTER__COURSE:
 				setCourse((Course)newValue);
 				return;
-			case SpPackage.COURSE_IN_SEMESTER__IS_MANDATORY:
-				setIsMandatory((Boolean)newValue);
+			case SpPackage.COURSE_IN_SEMESTER__MANDATORY:
+				setMandatory((Boolean)newValue);
 				return;
 			case SpPackage.COURSE_IN_SEMESTER__SEMESTERS:
 				getSemesters().clear();
@@ -251,6 +295,9 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 				return;
 			case SpPackage.COURSE_IN_SEMESTER__LEVEL:
 				setLevel((Integer)newValue);
+				return;
+			case SpPackage.COURSE_IN_SEMESTER__PICKED:
+				setPicked((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -267,14 +314,17 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 			case SpPackage.COURSE_IN_SEMESTER__COURSE:
 				setCourse((Course)null);
 				return;
-			case SpPackage.COURSE_IN_SEMESTER__IS_MANDATORY:
-				setIsMandatory(IS_MANDATORY_EDEFAULT);
+			case SpPackage.COURSE_IN_SEMESTER__MANDATORY:
+				setMandatory(MANDATORY_EDEFAULT);
 				return;
 			case SpPackage.COURSE_IN_SEMESTER__SEMESTERS:
 				getSemesters().clear();
 				return;
 			case SpPackage.COURSE_IN_SEMESTER__LEVEL:
 				setLevel(LEVEL_EDEFAULT);
+				return;
+			case SpPackage.COURSE_IN_SEMESTER__PICKED:
+				setPicked(PICKED_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -290,12 +340,14 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 		switch (featureID) {
 			case SpPackage.COURSE_IN_SEMESTER__COURSE:
 				return course != null;
-			case SpPackage.COURSE_IN_SEMESTER__IS_MANDATORY:
-				return isMandatory != IS_MANDATORY_EDEFAULT;
+			case SpPackage.COURSE_IN_SEMESTER__MANDATORY:
+				return mandatory != MANDATORY_EDEFAULT;
 			case SpPackage.COURSE_IN_SEMESTER__SEMESTERS:
 				return semesters != null && !semesters.isEmpty();
 			case SpPackage.COURSE_IN_SEMESTER__LEVEL:
 				return level != LEVEL_EDEFAULT;
+			case SpPackage.COURSE_IN_SEMESTER__PICKED:
+				return picked != PICKED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -310,12 +362,14 @@ public class courseInSemesterImpl extends MinimalEObjectImpl.Container implement
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (isMandatory: ");
-		result.append(isMandatory);
+		result.append(" (mandatory: ");
+		result.append(mandatory);
 		result.append(", level: ");
 		result.append(level);
+		result.append(", picked: ");
+		result.append(picked);
 		result.append(')');
 		return result.toString();
 	}
 
-} //courseInSemesterImpl
+} //CourseInSemesterImpl

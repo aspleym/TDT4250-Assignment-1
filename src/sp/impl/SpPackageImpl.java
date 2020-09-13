@@ -12,13 +12,14 @@ import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import sp.Course;
+import sp.CourseInSemester;
 import sp.Programme;
 import sp.Semester;
 import sp.SpFactory;
 import sp.SpPackage;
 import sp.Specialisation;
+import sp.StudyPlan;
 import sp.Year;
-import sp.courseInSemester;
 import sp.util.SpValidator;
 
 /**
@@ -69,6 +70,13 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 * @generated
 	 */
 	private EClass courseInSemesterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass studyPlanEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -323,7 +331,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getcourseInSemester() {
+	public EClass getCourseInSemester() {
 		return courseInSemesterEClass;
 	}
 
@@ -332,7 +340,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getcourseInSemester_Course() {
+	public EReference getCourseInSemester_Course() {
 		return (EReference)courseInSemesterEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -341,7 +349,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getcourseInSemester_IsMandatory() {
+	public EAttribute getCourseInSemester_Mandatory() {
 		return (EAttribute)courseInSemesterEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -350,7 +358,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getcourseInSemester_Semesters() {
+	public EReference getCourseInSemester_Semesters() {
 		return (EReference)courseInSemesterEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -359,8 +367,44 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getcourseInSemester_Level() {
+	public EAttribute getCourseInSemester_Level() {
 		return (EAttribute)courseInSemesterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCourseInSemester_Picked() {
+		return (EAttribute)courseInSemesterEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStudyPlan() {
+		return studyPlanEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStudyPlan_ProgrammesInStudyPlan() {
+		return (EReference)studyPlanEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getStudyPlan_StudentNr() {
+		return (EAttribute)studyPlanEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -426,9 +470,14 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 
 		courseInSemesterEClass = createEClass(COURSE_IN_SEMESTER);
 		createEReference(courseInSemesterEClass, COURSE_IN_SEMESTER__COURSE);
-		createEAttribute(courseInSemesterEClass, COURSE_IN_SEMESTER__IS_MANDATORY);
+		createEAttribute(courseInSemesterEClass, COURSE_IN_SEMESTER__MANDATORY);
 		createEReference(courseInSemesterEClass, COURSE_IN_SEMESTER__SEMESTERS);
 		createEAttribute(courseInSemesterEClass, COURSE_IN_SEMESTER__LEVEL);
+		createEAttribute(courseInSemesterEClass, COURSE_IN_SEMESTER__PICKED);
+
+		studyPlanEClass = createEClass(STUDY_PLAN);
+		createEReference(studyPlanEClass, STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN);
+		createEAttribute(studyPlanEClass, STUDY_PLAN__STUDENT_NR);
 
 		// Create data types
 		courseCodeEDataType = createEDataType(COURSE_CODE);
@@ -471,7 +520,7 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 
 		initEClass(semesterEClass, Semester.class, "Semester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemester_Number(), ecorePackage.getEInt(), "number", null, 1, 1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSemester_Courses(), this.getcourseInSemester(), null, "courses", null, 1, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSemester_Courses(), this.getCourseInSemester(), null, "courses", null, 1, -1, Semester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(programmeEClass, Programme.class, "Programme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getProgramme_Name(), ecorePackage.getEString(), "name", null, 1, 1, Programme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -488,11 +537,16 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 		initEReference(getSpecialisation_SecondSpesialisations(), this.getSpecialisation(), null, "secondSpesialisations", null, 0, -1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpecialisation_Name(), ecorePackage.getEString(), "name", null, 1, 1, Specialisation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(courseInSemesterEClass, courseInSemester.class, "courseInSemester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getcourseInSemester_Course(), this.getCourse(), null, "course", null, 1, 1, courseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getcourseInSemester_IsMandatory(), ecorePackage.getEBoolean(), "isMandatory", null, 1, 1, courseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getcourseInSemester_Semesters(), this.getSemester(), null, "semesters", null, 1, -1, courseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getcourseInSemester_Level(), ecorePackage.getEInt(), "level", null, 0, 1, courseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(courseInSemesterEClass, CourseInSemester.class, "CourseInSemester", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getCourseInSemester_Course(), this.getCourse(), null, "course", null, 1, 1, CourseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourseInSemester_Mandatory(), ecorePackage.getEBoolean(), "mandatory", null, 0, 1, CourseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCourseInSemester_Semesters(), this.getSemester(), null, "semesters", null, 1, -1, CourseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourseInSemester_Level(), ecorePackage.getEInt(), "level", null, 0, 1, CourseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCourseInSemester_Picked(), ecorePackage.getEBoolean(), "picked", null, 0, 1, CourseInSemester.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		initEClass(studyPlanEClass, StudyPlan.class, "StudyPlan", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStudyPlan_ProgrammesInStudyPlan(), this.getProgramme(), null, "ProgrammesInStudyPlan", null, 1, -1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getStudyPlan_StudentNr(), ecorePackage.getEInt(), "studentNr", null, 0, 1, StudyPlan.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(courseCodeEDataType, String.class, "CourseCode", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
@@ -520,6 +574,18 @@ public class SpPackageImpl extends EPackageImpl implements SpPackage {
 		   source,
 		   new String[] {
 			   "validationDelegates", "http://www.eclipse.org/acceleo/query/1.0"
+		   });
+		addAnnotation
+		  (yearEClass,
+		   source,
+		   new String[] {
+			   "constraints", "needsEnoughCredits"
+		   });
+		addAnnotation
+		  (courseInSemesterEClass,
+		   source,
+		   new String[] {
+			   "constraints", "courseIsPickedIfMandatory"
 		   });
 	}
 

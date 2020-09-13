@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see sp.SpPackage#getYear()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='needsEnoughCredits'"
  * @generated
  */
 public interface Year extends EObject {

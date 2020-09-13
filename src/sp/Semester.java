@@ -48,7 +48,7 @@ public interface Semester extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Courses</b></em>' reference list.
-	 * The list contents are of type {@link sp.courseInSemester}.
+	 * The list contents are of type {@link sp.CourseInSemester}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Courses</em>' reference list.
@@ -56,6 +56,6 @@ public interface Semester extends EObject {
 	 * @model required="true"
 	 * @generated
 	 */
-	EList<courseInSemester> getCourses();
+	EList<CourseInSemester> getCourses();
 
 } // Semester

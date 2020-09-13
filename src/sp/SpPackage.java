@@ -325,11 +325,11 @@ public interface SpPackage extends EPackage {
 	int SPECIALISATION_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link sp.impl.courseInSemesterImpl <em>course In Semester</em>}' class.
+	 * The meta object id for the '{@link sp.impl.CourseInSemesterImpl <em>Course In Semester</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see sp.impl.courseInSemesterImpl
-	 * @see sp.impl.SpPackageImpl#getcourseInSemester()
+	 * @see sp.impl.CourseInSemesterImpl
+	 * @see sp.impl.SpPackageImpl#getCourseInSemester()
 	 * @generated
 	 */
 	int COURSE_IN_SEMESTER = 5;
@@ -344,13 +344,13 @@ public interface SpPackage extends EPackage {
 	int COURSE_IN_SEMESTER__COURSE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Is Mandatory</b></em>' attribute.
+	 * The feature id for the '<em><b>Mandatory</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_IN_SEMESTER__IS_MANDATORY = 1;
+	int COURSE_IN_SEMESTER__MANDATORY = 1;
 
 	/**
 	 * The feature id for the '<em><b>Semesters</b></em>' reference list.
@@ -371,16 +371,25 @@ public interface SpPackage extends EPackage {
 	int COURSE_IN_SEMESTER__LEVEL = 3;
 
 	/**
-	 * The number of structural features of the '<em>course In Semester</em>' class.
+	 * The feature id for the '<em><b>Picked</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COURSE_IN_SEMESTER_FEATURE_COUNT = 4;
+	int COURSE_IN_SEMESTER__PICKED = 4;
 
 	/**
-	 * The number of operations of the '<em>course In Semester</em>' class.
+	 * The number of structural features of the '<em>Course In Semester</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COURSE_IN_SEMESTER_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Course In Semester</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -390,6 +399,52 @@ public interface SpPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link sp.impl.StudyPlanImpl <em>Study Plan</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see sp.impl.StudyPlanImpl
+	 * @see sp.impl.SpPackageImpl#getStudyPlan()
+	 * @generated
+	 */
+	int STUDY_PLAN = 6;
+
+	/**
+	 * The feature id for the '<em><b>Programmes In Study Plan</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN = 0;
+
+	/**
+	 * The feature id for the '<em><b>Student Nr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN__STUDENT_NR = 1;
+
+	/**
+	 * The number of structural features of the '<em>Study Plan</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Study Plan</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STUDY_PLAN_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>Course Code</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -397,7 +452,7 @@ public interface SpPackage extends EPackage {
 	 * @see sp.impl.SpPackageImpl#getCourseCode()
 	 * @generated
 	 */
-	int COURSE_CODE = 6;
+	int COURSE_CODE = 7;
 
 
 	/**
@@ -605,58 +660,101 @@ public interface SpPackage extends EPackage {
 	EAttribute getSpecialisation_Name();
 
 	/**
-	 * Returns the meta object for class '{@link sp.courseInSemester <em>course In Semester</em>}'.
+	 * Returns the meta object for class '{@link sp.CourseInSemester <em>Course In Semester</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>course In Semester</em>'.
-	 * @see sp.courseInSemester
+	 * @return the meta object for class '<em>Course In Semester</em>'.
+	 * @see sp.CourseInSemester
 	 * @generated
 	 */
-	EClass getcourseInSemester();
+	EClass getCourseInSemester();
 
 	/**
-	 * Returns the meta object for the reference '{@link sp.courseInSemester#getCourse <em>Course</em>}'.
+	 * Returns the meta object for the reference '{@link sp.CourseInSemester#getCourse <em>Course</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Course</em>'.
-	 * @see sp.courseInSemester#getCourse()
-	 * @see #getcourseInSemester()
+	 * @see sp.CourseInSemester#getCourse()
+	 * @see #getCourseInSemester()
 	 * @generated
 	 */
-	EReference getcourseInSemester_Course();
+	EReference getCourseInSemester_Course();
 
 	/**
-	 * Returns the meta object for the attribute '{@link sp.courseInSemester#isIsMandatory <em>Is Mandatory</em>}'.
+	 * Returns the meta object for the attribute '{@link sp.CourseInSemester#isMandatory <em>Mandatory</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Mandatory</em>'.
-	 * @see sp.courseInSemester#isIsMandatory()
-	 * @see #getcourseInSemester()
+	 * @return the meta object for the attribute '<em>Mandatory</em>'.
+	 * @see sp.CourseInSemester#isMandatory()
+	 * @see #getCourseInSemester()
 	 * @generated
 	 */
-	EAttribute getcourseInSemester_IsMandatory();
+	EAttribute getCourseInSemester_Mandatory();
 
 	/**
-	 * Returns the meta object for the reference list '{@link sp.courseInSemester#getSemesters <em>Semesters</em>}'.
+	 * Returns the meta object for the reference list '{@link sp.CourseInSemester#getSemesters <em>Semesters</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference list '<em>Semesters</em>'.
-	 * @see sp.courseInSemester#getSemesters()
-	 * @see #getcourseInSemester()
+	 * @see sp.CourseInSemester#getSemesters()
+	 * @see #getCourseInSemester()
 	 * @generated
 	 */
-	EReference getcourseInSemester_Semesters();
+	EReference getCourseInSemester_Semesters();
 
 	/**
-	 * Returns the meta object for the attribute '{@link sp.courseInSemester#getLevel <em>Level</em>}'.
+	 * Returns the meta object for the attribute '{@link sp.CourseInSemester#getLevel <em>Level</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Level</em>'.
-	 * @see sp.courseInSemester#getLevel()
-	 * @see #getcourseInSemester()
+	 * @see sp.CourseInSemester#getLevel()
+	 * @see #getCourseInSemester()
 	 * @generated
 	 */
-	EAttribute getcourseInSemester_Level();
+	EAttribute getCourseInSemester_Level();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sp.CourseInSemester#isPicked <em>Picked</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Picked</em>'.
+	 * @see sp.CourseInSemester#isPicked()
+	 * @see #getCourseInSemester()
+	 * @generated
+	 */
+	EAttribute getCourseInSemester_Picked();
+
+	/**
+	 * Returns the meta object for class '{@link sp.StudyPlan <em>Study Plan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Study Plan</em>'.
+	 * @see sp.StudyPlan
+	 * @generated
+	 */
+	EClass getStudyPlan();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link sp.StudyPlan#getProgrammesInStudyPlan <em>Programmes In Study Plan</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Programmes In Study Plan</em>'.
+	 * @see sp.StudyPlan#getProgrammesInStudyPlan()
+	 * @see #getStudyPlan()
+	 * @generated
+	 */
+	EReference getStudyPlan_ProgrammesInStudyPlan();
+
+	/**
+	 * Returns the meta object for the attribute '{@link sp.StudyPlan#getStudentNr <em>Student Nr</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Student Nr</em>'.
+	 * @see sp.StudyPlan#getStudentNr()
+	 * @see #getStudyPlan()
+	 * @generated
+	 */
+	EAttribute getStudyPlan_StudentNr();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.String <em>Course Code</em>}'.
@@ -856,14 +954,14 @@ public interface SpPackage extends EPackage {
 		EAttribute SPECIALISATION__NAME = eINSTANCE.getSpecialisation_Name();
 
 		/**
-		 * The meta object literal for the '{@link sp.impl.courseInSemesterImpl <em>course In Semester</em>}' class.
+		 * The meta object literal for the '{@link sp.impl.CourseInSemesterImpl <em>Course In Semester</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see sp.impl.courseInSemesterImpl
-		 * @see sp.impl.SpPackageImpl#getcourseInSemester()
+		 * @see sp.impl.CourseInSemesterImpl
+		 * @see sp.impl.SpPackageImpl#getCourseInSemester()
 		 * @generated
 		 */
-		EClass COURSE_IN_SEMESTER = eINSTANCE.getcourseInSemester();
+		EClass COURSE_IN_SEMESTER = eINSTANCE.getCourseInSemester();
 
 		/**
 		 * The meta object literal for the '<em><b>Course</b></em>' reference feature.
@@ -871,15 +969,15 @@ public interface SpPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COURSE_IN_SEMESTER__COURSE = eINSTANCE.getcourseInSemester_Course();
+		EReference COURSE_IN_SEMESTER__COURSE = eINSTANCE.getCourseInSemester_Course();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Mandatory</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Mandatory</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COURSE_IN_SEMESTER__IS_MANDATORY = eINSTANCE.getcourseInSemester_IsMandatory();
+		EAttribute COURSE_IN_SEMESTER__MANDATORY = eINSTANCE.getCourseInSemester_Mandatory();
 
 		/**
 		 * The meta object literal for the '<em><b>Semesters</b></em>' reference list feature.
@@ -887,7 +985,7 @@ public interface SpPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference COURSE_IN_SEMESTER__SEMESTERS = eINSTANCE.getcourseInSemester_Semesters();
+		EReference COURSE_IN_SEMESTER__SEMESTERS = eINSTANCE.getCourseInSemester_Semesters();
 
 		/**
 		 * The meta object literal for the '<em><b>Level</b></em>' attribute feature.
@@ -895,7 +993,41 @@ public interface SpPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute COURSE_IN_SEMESTER__LEVEL = eINSTANCE.getcourseInSemester_Level();
+		EAttribute COURSE_IN_SEMESTER__LEVEL = eINSTANCE.getCourseInSemester_Level();
+
+		/**
+		 * The meta object literal for the '<em><b>Picked</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COURSE_IN_SEMESTER__PICKED = eINSTANCE.getCourseInSemester_Picked();
+
+		/**
+		 * The meta object literal for the '{@link sp.impl.StudyPlanImpl <em>Study Plan</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see sp.impl.StudyPlanImpl
+		 * @see sp.impl.SpPackageImpl#getStudyPlan()
+		 * @generated
+		 */
+		EClass STUDY_PLAN = eINSTANCE.getStudyPlan();
+
+		/**
+		 * The meta object literal for the '<em><b>Programmes In Study Plan</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STUDY_PLAN__PROGRAMMES_IN_STUDY_PLAN = eINSTANCE.getStudyPlan_ProgrammesInStudyPlan();
+
+		/**
+		 * The meta object literal for the '<em><b>Student Nr</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute STUDY_PLAN__STUDENT_NR = eINSTANCE.getStudyPlan_StudentNr();
 
 		/**
 		 * The meta object literal for the '<em>Course Code</em>' data type.

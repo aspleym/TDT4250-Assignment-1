@@ -8,38 +8,39 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>course In Semester</b></em>'.
+ * A representation of the model object '<em><b>Course In Semester</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link sp.courseInSemester#getCourse <em>Course</em>}</li>
- *   <li>{@link sp.courseInSemester#isIsMandatory <em>Is Mandatory</em>}</li>
- *   <li>{@link sp.courseInSemester#getSemesters <em>Semesters</em>}</li>
- *   <li>{@link sp.courseInSemester#getLevel <em>Level</em>}</li>
+ *   <li>{@link sp.CourseInSemester#getCourse <em>Course</em>}</li>
+ *   <li>{@link sp.CourseInSemester#isMandatory <em>Mandatory</em>}</li>
+ *   <li>{@link sp.CourseInSemester#getSemesters <em>Semesters</em>}</li>
+ *   <li>{@link sp.CourseInSemester#getLevel <em>Level</em>}</li>
+ *   <li>{@link sp.CourseInSemester#isPicked <em>Picked</em>}</li>
  * </ul>
  *
- * @see sp.SpPackage#getcourseInSemester()
- * @model
+ * @see sp.SpPackage#getCourseInSemester()
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='courseIsPickedIfMandatory'"
  * @generated
  */
-public interface courseInSemester extends EObject {
+public interface CourseInSemester extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Course</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Course</em>' reference.
 	 * @see #setCourse(Course)
-	 * @see sp.SpPackage#getcourseInSemester_Course()
+	 * @see sp.SpPackage#getCourseInSemester_Course()
 	 * @model required="true"
 	 * @generated
 	 */
 	Course getCourse();
 
 	/**
-	 * Sets the value of the '{@link sp.courseInSemester#getCourse <em>Course</em>}' reference.
+	 * Sets the value of the '{@link sp.CourseInSemester#getCourse <em>Course</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Course</em>' reference.
@@ -49,26 +50,26 @@ public interface courseInSemester extends EObject {
 	void setCourse(Course value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Mandatory</b></em>' attribute.
+	 * Returns the value of the '<em><b>Mandatory</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Mandatory</em>' attribute.
-	 * @see #setIsMandatory(boolean)
-	 * @see sp.SpPackage#getcourseInSemester_IsMandatory()
-	 * @model required="true"
+	 * @return the value of the '<em>Mandatory</em>' attribute.
+	 * @see #setMandatory(boolean)
+	 * @see sp.SpPackage#getCourseInSemester_Mandatory()
+	 * @model
 	 * @generated
 	 */
-	boolean isIsMandatory();
+	boolean isMandatory();
 
 	/**
-	 * Sets the value of the '{@link sp.courseInSemester#isIsMandatory <em>Is Mandatory</em>}' attribute.
+	 * Sets the value of the '{@link sp.CourseInSemester#isMandatory <em>Mandatory</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Mandatory</em>' attribute.
-	 * @see #isIsMandatory()
+	 * @param value the new value of the '<em>Mandatory</em>' attribute.
+	 * @see #isMandatory()
 	 * @generated
 	 */
-	void setIsMandatory(boolean value);
+	void setMandatory(boolean value);
 
 	/**
 	 * Returns the value of the '<em><b>Semesters</b></em>' reference list.
@@ -76,7 +77,7 @@ public interface courseInSemester extends EObject {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Semesters</em>' reference list.
-	 * @see sp.SpPackage#getcourseInSemester_Semesters()
+	 * @see sp.SpPackage#getCourseInSemester_Semesters()
 	 * @model required="true"
 	 * @generated
 	 */
@@ -88,14 +89,14 @@ public interface courseInSemester extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Level</em>' attribute.
 	 * @see #setLevel(int)
-	 * @see sp.SpPackage#getcourseInSemester_Level()
+	 * @see sp.SpPackage#getCourseInSemester_Level()
 	 * @model
 	 * @generated
 	 */
 	int getLevel();
 
 	/**
-	 * Sets the value of the '{@link sp.courseInSemester#getLevel <em>Level</em>}' attribute.
+	 * Sets the value of the '{@link sp.CourseInSemester#getLevel <em>Level</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Level</em>' attribute.
@@ -104,4 +105,26 @@ public interface courseInSemester extends EObject {
 	 */
 	void setLevel(int value);
 
-} // courseInSemester
+	/**
+	 * Returns the value of the '<em><b>Picked</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Picked</em>' attribute.
+	 * @see #setPicked(boolean)
+	 * @see sp.SpPackage#getCourseInSemester_Picked()
+	 * @model derived="true"
+	 * @generated
+	 */
+	boolean isPicked();
+
+	/**
+	 * Sets the value of the '{@link sp.CourseInSemester#isPicked <em>Picked</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Picked</em>' attribute.
+	 * @see #isPicked()
+	 * @generated
+	 */
+	void setPicked(boolean value);
+
+} // CourseInSemester

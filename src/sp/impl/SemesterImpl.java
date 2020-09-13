@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import sp.CourseInSemester;
 import sp.Semester;
 import sp.SpPackage;
-import sp.courseInSemester;
 
 /**
  * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<courseInSemester> courses;
+	protected EList<CourseInSemester> courses;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,9 +109,9 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<courseInSemester> getCourses() {
+	public EList<CourseInSemester> getCourses() {
 		if (courses == null) {
-			courses = new EObjectResolvingEList<courseInSemester>(courseInSemester.class, this, SpPackage.SEMESTER__COURSES);
+			courses = new EObjectResolvingEList<CourseInSemester>(CourseInSemester.class, this, SpPackage.SEMESTER__COURSES);
 		}
 		return courses;
 	}
@@ -146,7 +146,7 @@ public class SemesterImpl extends MinimalEObjectImpl.Container implements Semest
 				return;
 			case SpPackage.SEMESTER__COURSES:
 				getCourses().clear();
-				getCourses().addAll((Collection<? extends courseInSemester>)newValue);
+				getCourses().addAll((Collection<? extends CourseInSemester>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

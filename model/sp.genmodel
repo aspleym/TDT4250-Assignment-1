@@ -31,11 +31,16 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sp.ecore#//Specialisation/secondSpesialisations"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//Specialisation/name"/>
     </genClasses>
-    <genClasses ecoreClass="sp.ecore#//courseInSemester">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sp.ecore#//courseInSemester/course"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//courseInSemester/isMandatory"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sp.ecore#//courseInSemester/semesters"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//courseInSemester/level"/>
+    <genClasses ecoreClass="sp.ecore#//CourseInSemester">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sp.ecore#//CourseInSemester/course"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//CourseInSemester/mandatory"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference sp.ecore#//CourseInSemester/semesters"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//CourseInSemester/level"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//CourseInSemester/picked"/>
+    </genClasses>
+    <genClasses ecoreClass="sp.ecore#//StudyPlan">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference sp.ecore#//StudyPlan/ProgrammesInStudyPlan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute sp.ecore#//StudyPlan/studentNr"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

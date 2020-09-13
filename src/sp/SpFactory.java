@@ -67,13 +67,22 @@ public interface SpFactory extends EFactory {
 	Specialisation createSpecialisation();
 
 	/**
-	 * Returns a new object of class '<em>course In Semester</em>'.
+	 * Returns a new object of class '<em>Course In Semester</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>course In Semester</em>'.
+	 * @return a new object of class '<em>Course In Semester</em>'.
 	 * @generated
 	 */
-	courseInSemester createcourseInSemester();
+	CourseInSemester createCourseInSemester();
+
+	/**
+	 * Returns a new object of class '<em>Study Plan</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Study Plan</em>'.
+	 * @generated
+	 */
+	StudyPlan createStudyPlan();
 
 	/**
 	 * Returns the package supported by this factory.
